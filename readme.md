@@ -66,6 +66,7 @@ Az url -ek a típusokhoz:
 ## a kiértékelés szempontjai
 * sikerült e bővíthetőre elkészíteni a feladatot, a második részben tényleg nem kellett e belenyúlni az eredeti kódba
 * mennyire tiszta a kód, olvasható, bővíthető
+* be vannak e tartva az alapvető fejlesztői szabályok, irányelvek (SOLID, DRY, KISS...)
 * mennyire van használva a PHP7 szintaktikája, nincs e benne típushiba
 * vannak e nem lekezelt hibák, át nem gondolt esetek
 * a performancia nem szempont ebben a feladatban.
