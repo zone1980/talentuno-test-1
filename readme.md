@@ -15,7 +15,9 @@ a másodikba, akkor az elsőre már ne legyen több commit.
 az első feladatot csinálod, akkor csak annyit tudsz, hogy majd bővíteni kell
 tudni a rendszert, de azt nem tudod mikor és mivel.
 
-A feladathoz PHP 7 és Symfony használható, új package nem kell hozzá. 
+A feladathoz PHP 7 és Symfony használható, új package nem kell hozzá.
+
+Kérlek forkold le a repository -t, majd a saját példányodba commitolj. 
 
 ## első rész
 Meg kell valósítani a fent leírt feladatot 3 adattípussal, de úgy, hogy az bővíthető
