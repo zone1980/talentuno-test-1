@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+define( 'VENDOR_DIR', dirname(__DIR__) . DIRECTORY_SEPARATOR. 'vendor');
+
+require VENDOR_DIR . DIRECTORY_SEPARATOR . 'autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$file = __DIR__ .'/../cache/container.php';
+$containerConfigCache = new \Symfony\Component\Config\ConfigCache(
+    $file,
+    true
+);
+
+if (!$containerConfigCache->isFresh()) {
+    $containerBuilder = new \Symfony\Component\DependencyInjection\ContainerBuilder();
+    $testOneExtension = new \App\TestOneBundle\DependencyInjection\TestOneExtension();
+    $containerBuilder->registerExtension($testOneExtension);
+    $containerBuilder->loadFromExtension($testOneExtension->getAlias());
+    $containerBuilder->compile();
+
+    $dumper = new \Symfony\Component\DependencyInjection\Dumper\PhpDumper($containerBuilder);
+    $containerConfigCache->write(
+        $dumper->dump(['class' => 'TestContainer']),
+        $containerBuilder->getResources()
+    );
+}
+
+require_once $file;
+$container = new TestContainer();
+
+$application = new Application();
+/** @var \Symfony\Component\DependencyInjection\Container $container */
+
+$application->add($container->get('test.one.command'));
+$application->add($container->get('test.two.command'));
+
+$application->run();
