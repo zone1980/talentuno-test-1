@@ -1,12 +1,15 @@
 # Teszt feladat
 
-Egy Manager -ből érkező adatokat kell átalakítani, majd a Connector -nak átadni.
-A Manager nem kell, hogy adatbázishoz csatlakozzon, egyszerűen 
-az interface -ben definiált findAll metódus adja vissza a tömböt az adatokkal.
-Az adatok objektumokban vannak, ezeket kell majd transzformálni tömbbé,
-hogy a Connector -al el lehessen küldeni. Minden adat típusnak (Objektumnak) van
-még egy URL -je is, ahova kell majd küldeni. Nem kell kiküldeni semmilyen adatot, a Connector
-írja ki a kimenetre, hogy mit és hova küldene.
+A feladatok:
+* meg kell valósítani a ManagerInterface -t (App\TestOneBundle\Interfaces), úgy
+hogy nem kell adatbázishoz kapcsolódjon, csak adjon vissza egy objektumok tömbjét
+* a visszaadott tömbben több féle objektum is lehet (és legyen is), ezeknek az objektumoknak a leírása
+az adott résznél található (Product, User, Cart, Order, Invoice)
+* az objektumoknak protected változóik vannak, amik getter/setter -el legyenek kezelve
+* az objektumokat át kell transzformálni tömbbé
+* a kapott tömböt és a típushoz tartozó URL -t át kell adni a ConnectorInterface megvalósításának sendDate
+metódusának
+* a ConnectorInterface megvalósítása a szabványos kimenetre kiírja a kapott URL -t és az adatot  
 
 Kérlek a két feladatot legalább 2 commitban készítsd el, a commit message -ben
 legyen benne, hogy melyik feladatra ment a commit. Ha az első rész elkészült és belekezdtél
